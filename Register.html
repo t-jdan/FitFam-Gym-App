@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/2a2c884d6a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div id="form1">
+    <h2 id="sign-in" >Sign-Up</h2>
+    <form action="/action_page.php">
+
+    <label for="username" id="usernamelabel">Username* </label><br>
+    <input type="text" id="username" name="username" class="place"><br>
+
+    <label for="email" id="emaillabel">Email* </label><br>
+    <input type="text" id="email" name="email" class="place"><br>
+
+    <label for="password" class="font" id="Cpasswordlabel">Create Password*</label><br>
+    <input type="text" id="CreatePassword" name="CreatePassword" class="place"><br>
+
+    <label for="password" class="font" id="Rpasswordlabel">Re-type Password*</label><br>
+    <input type="text" id="ReTypePassword" name="ReTypePassword" class="place"><br>
+
+    <div   class="remember-forgot">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe" cid="rMe">Remember me</label><br>
+        <a href="/forgot-password" id="forgotpassword">Forgot password?</a><br>
+    </div>
+
+    <input type="submit" value="Register" class="font" id="register">
+   
+    </form> 
+</div>
+    
+</body>
+</html>
