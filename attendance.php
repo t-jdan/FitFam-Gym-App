@@ -67,9 +67,5 @@ function recordAttendance($userId) {
     echo "Attendance for user with ID {$userId} has been recorded successfully.";
 }
 
-// Example usage of the functions
-checkInUser('U001');
-recordAttendance('U002');
-
 $db->close();
 ?>
