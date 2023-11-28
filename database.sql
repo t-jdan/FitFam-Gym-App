@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS FitFam_Management_System;
+-- DROP DATABASE IF EXISTS FitFam_Management_System;
 CREATE DATABASE FitFam_Management_System;
 USE FitFam_Management_System;
 -- Create Person table
@@ -40,7 +40,7 @@ CREATE TABLE Admin (
 CREATE TABLE GymUser (
     user_id VARCHAR(50) PRIMARY KEY,
     FOREIGN KEY (user_id) REFERENCES Person(user_id)
-)
+);
 
 -- Create GymTrainer table
 CREATE TABLE GymTrainer (
