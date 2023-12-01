@@ -1,0 +1,189 @@
+/* top right bottom left */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background-color: #F3F3F3;
+}
+.menu {
+    /* width: 17%;
+    height: 900px; */
+    background-color: #A30A00;
+    padding-top: 20px;
+    padding-left: 40px;
+    color: white;
+    float: left;
+    width: 16%;
+    height: 900px;
+    overflow-y: none;
+}
+.menu a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+#name{
+    font-size:large;
+    margin-left: 60px;
+    margin-bottom: 0px ;
+}
+#email{
+    font-size:small;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+.content {
+    margin-left: 250px;
+    padding: 16px;
+}
+#profilePic{    
+    border-radius: 50%; /* Make the image circular */
+    width: 100px;
+    height: 100px;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+.content{
+    padding-left: 150px;
+}
+#logout{
+    padding-top: 80px;
+}
+.dashboard i {
+    margin-right: 5px;
+}
+.dashboard i, .dashboard a {
+    display: inline;
+}
+#dashB{
+    margin: 80px 10px 30px 0px;
+    padding: 10px;
+    width: 211px;
+    background-color: white;
+    border-radius: 10px 0px 0px 10px;
+}
+#adminpro{
+    margin: 10px 10px 30px 5px;
+}
+#attend{
+    margin: 10px 10px 30px 5px;
+}
+#equip{
+    margin: 10px 10px 30px 5px;
+}
+#viewT{
+    margin: 10px 10px 30px 5px;
+}
+#rep{
+    margin: 10px 10px 30px 5px;
+}
+#logout i {
+    margin-right: 5px;
+}
+#logout i, #logout a {
+    display: inline;
+}
+.container{
+    display: flex;
+}
+.menu{
+ position: fixed;
+}
+.maincontent{
+    flex: 1;
+    margin-left: 340px;
+    margin-top: 10px;
+    width: 750px;
+    height:650px;
+    padding: 20px 40px 20px 20px;
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#intro2{
+    background-image: url('p9.jpg');
+    height: 300px;
+    width: 700px;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px  10px 10px 10px ;
+    position: relative;
+    color: white; 
+    margin-bottom: 40px;
+}
+#intro2a{
+    position: absolute;
+    bottom: 0;
+    left: 5;
+    font-weight: bolder;
+}
+#workc2{
+    display: flex;
+}
+#beginner{
+    background-image: url('p5.jpg');
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-size: cover;
+    text-align: center;
+    color: #A30A00;
+    font-weight: bolder;
+}
+#intermediate{
+    background-image: url('p7.jpg');
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 20px;
+    margin-right: 20px;
+    background-size: cover;
+    color: #A30A00;
+    font-weight: bolder;
+}
+#advanced{
+    background-image: url('p8.jpg');
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 20px;
+    background-size: cover;
+    color: #A30A00;
+    font-weight: bolder;
+}
+
+#headingleft{
+    float: right;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+}
+#contentright{
+    float: left;
+
+}
+
+.fit {
+    font-family: "Copperplate", Fantasy;
+    font-size: 70px;
+  }
+  .fam{
+    font-family: cursive;
+    color: #A30A00;
+    font-size: 50px;
+  }
+
+  .fit {
+    font-family: "Copperplate", Fantasy;
+    font-size: 70px;
+  }
+  .fam{
+    font-family: cursive;
+    color: #A30A00;
+    font-size: 50px;
+  }

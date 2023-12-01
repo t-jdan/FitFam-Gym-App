@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/2a2c884d6a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            var username = document.forms["registrationForm"]["email"].value;
+            var password = document.forms["registrationForm"]["CreatePassword"].value;
+            var confirmPassword = document.forms["registrationForm"]["ReTypePassword"].value;
+
+            if (username == "") {
+                alert("Please enter a username.");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Please enter a password.");
+                return false;
+            }
+
+            if (confirmPassword == "") {
+                alert("Please confirm your password.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+             // If validation passed, make the AJAX call
+    $.ajax({
+         type: "POST",
+         url: "../register_process.php",
+         data: { reg_button: true, email: username, password: password },
+         success: function(response) {
+             // Handle the response from the server
+             // This could be a redirect, an error message, etc.
+             window.location.href = "index.html";
+         },
+         error: function(jqXHR, textStatus, errorThrown) {
+             // Handle any errors
+             console.error(textStatus, errorThrown);
+         }
+     });
+        }
+    </script>
+</head>
+
+<body>
+<div  id="form1" >
+    <h2 id="sign-in" >Sign-Up</h2>
+    <form name="registrationForm"  onsubmit="return validateForm(event);">
+
+    <label for="studentid" class="font" id="idlabel">ID</label><br>
+    <input type="text" id="sid" name="studentID" class="place"><br>
+    
+    <label for="firstname" id="usernamelabel">Firstname </label><br>
+    <input type="text" id="firstname" name="firstname" class="place"><br>
+
+    <label for="lastname" id="emaillabel">Lastname </label><br>
+    <input type="text" id="lastname" name="lastname" class="place"><br>
+
+    <label for="email" id="emaillabel">Email </label><br>
+    <input type="text" id="email" name="email" class="place"><br>
+
+    <label for="phonenumber" id="emaillabel">Phone Number </label><br>
+    <input type="text" id="tel_no" name="tel_no" class="place"><br>
+
+    <label for="password" class="font" id="Cpasswordlabel">Create Password</label><br>
+    <input type="password" id="CreatePassword" name="CreatePassword" class="place"><br>
+
+    <label for="password" class="font" id="Rpasswordlabel">Re-type Password</label><br>
+    <input type="password" id="ReTypePassword" name="ReTypePassword" class="place"><br>
+
+    <label for="dob" class="font" id="doblabel">DOB</label><br>
+    <input type="text" id="dobb" name="DOB" class="place"><br>
+
+    <div   class="remember-forgot">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe" cid="rMe">Remember me</label><br>
+        <a href="/forgot-password" id="forgotpassword">Forgot password?</a><br>
+    </div>
+
+    <input type="submit" value="Register" name="reg_button" class="font" id="register">
+   
+    </form> 
+</div>
+    
+</body>
+</html>

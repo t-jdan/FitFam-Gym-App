@@ -1,0 +1,146 @@
+/* top right bottom left */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px 0px 10px ;    
+    background-color:whitesmoke;
+    height:770px;
+}
+
+#form1{
+    background-color: #CC514A;
+    text-align: center;
+    line-height: 40px;
+    height: 700px;
+    width: 700px;
+    border-radius: 20px;
+    margin-left: 260px;
+    margin-bottom: 40px;
+}
+
+.place{
+    border-radius: 5px;
+    border-color: #332F64;
+    width: 250px;
+    height: 25px;
+}
+#register{
+    background-color: #A30A00;
+    padding: 5px 10px 5px 10px ;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border:none;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px ;
+}
+#fnamelabel{
+    margin-right: 150px;
+ }
+
+ #lnamelabel{
+    margin-right: 160px;
+ }
+
+ #telnolabel{
+    margin-right: 200px;
+ }
+
+#emaillabel{
+   margin-right: 195px;
+}
+
+#idlabel{
+    margin-right: 160px;
+ }
+
+#Cpasswordlabel{
+    margin-right: 110px;
+}
+#Rpasswordlabel{
+    margin-right: 90px;
+}
+#doblabel{
+    margin-right: 210px;
+}
+
+#forgotpassword{
+    margin-left: 50px;
+    margin-right: 100px;
+    font-size: x-small;
+}
+#rMe{
+    margin-left: 20px;
+}
+#rememberMe{
+    font-size: x-small;
+    margin-left: 120px;
+}
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#formleft{
+    float:left;
+    margin-left: 80px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+#formright{
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+#formup{
+    background-image: url('p2.jpg');
+    height: 190px;
+    background-size: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+#formdown{
+    display: flex;
+    margin-top: 50px;
+}
+#headings{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+#headingleft{
+float: left;
+margin-right: 200px;
+display: flex;
+align-items: center;
+}
+
+#headingright{
+float: right;
+display: flex;
+margin-left: 650px;
+}
+.fit {
+    font-family: "Copperplate", Fantasy;
+    font-size: 70px;
+  }
+  .fam{
+    font-family: cursive;
+    color: #A30A00;
+    font-size: 50px;
+  }
+  #logintxt{
+    margin-right: 20px;
+    color: black;
+  }
+  #signuptxt{
+    margin-left: 1px;
+    color: #A30A00;
+  }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUP</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/2a2c884d6a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div id="headings">
+            <div id="headingleft">
+                <h1 class="fit-text" style="margin-right: 10px;">
+                    <span class="fit">FIT</span><span class="fam">FAM</span>
+                </h1>
+                <i class="fa-solid fa-dumbbell fa-xl" style="color: #a30a00;width: 40px;height: 40px;"></i>
+            </div>
+            <div id="headingright">
+                <a href="login.html" id="logintxt">Login</a>
+                <a href="#signup" id="signuptxt">Sign-Up</a>
+            </div> 
+        </div>
+        <div id="form1">
+            <form id="signupForm" >
+                <div id="formup">
+                </div>
+                <div id="formdown">
+                    <div id="formleft">
+                        <label for="first_name" id="fnamelabel">First Name* </label><br>
+                        <input type="text" id="first_name" name="first_name" class="place"><br>
+                    
+                        <label for="email" id="emaillabel">Email* </label><br>
+                        <input type="text" id="email" name="email" class="place"><br>
+            
+                        <label for="idno" id="idlabel">ID Number* </label><br>
+                        <input type="text" id="idno" name="idno" class="place"><br>
+                    
+                        <label for="CreatePassword" class="font" id="Cpasswordlabel">Create Password*</label><br>
+                        <input type="password" id="CreatePassword" name="CreatePassword" class="place"><br>
+                    </div>
+                    <div id="formright">
+                        <label for="last_name" id="lnamelabel">Last Name* </label><br>
+                        <input type="text" id="last_name" name="last_name" class="place"><br>
+            
+                        <label for="telno" id="telnolabel">Tel No* </label><br>
+                        <input type="text" id="telno" name="tel_no" class="place"><br>
+            
+                        <label for="dobb" class="font" id="doblabel">DOB*</label><br>
+                        <input type="text" id="dobb" name="DOB" class="place"><br>
+            
+                        <label for="ReTypePassword" class="font" id="Rpasswordlabel">Re-type Password*</label><br>
+                        <input type="password" id="ReTypePassword" name="ReTypePassword" class="place"><br>
+                    </div>
+                </div>
+                <div class="remember-forgot">
+                    <div>
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Remember me</label><br>
+                    </div>
+                    <a href="/forgot-password" id="forgotpassword">Forgot password?</a><br>
+                </div>
+                <input type="submit" value="Register" class="font" id="register">
+            </form> 
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#signupForm').submit(function(e) {
+                e.preventDefault(); // Prevent the default form submission
+        
+                var formData = $(this).serialize(); // Serialize the form data
+        
+                $.ajax({
+                    type: 'POST',
+                    url: 'signup_action.php', // The PHP file to handle the form submission
+                    data: formData,
+                    success: function(response) {
+                        console.log(response); // Log the response
+                            alert('Registration Successful!');
+                    },
+                    error: function() {
+                        // Handle error
+                        alert('An error occurred. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

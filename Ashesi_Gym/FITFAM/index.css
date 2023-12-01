@@ -1,0 +1,66 @@
+/* top right bottom left */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    width:600px;
+    margin: 80px 0px 0px 450px ;    
+    background-color: #DC827C;
+}
+
+#form1{
+    width: 500px; 
+    height: 450px; /* Adjust the height as needed */
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+}
+
+
+.place{
+    border-radius: 5px;
+    border-color: #332F64;
+    width: 250px;
+    height: 25px;
+}
+
+#login{
+    background-color: #A30A00;
+    padding: 5px 10px 5px 10px ;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border:none;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px ;
+}
+#emaillabel{
+   margin-right: 190px;
+}
+#passwordlabel{
+    margin-right: 160px;
+}
+
+#forgotpassword{
+    margin-left: 50px;
+    margin-right: 100px;
+    font-size: x-small;
+}
+#rMe{
+    margin-left: 120px;
+}
+
+#rememberMe{
+    font-size: x-small;
+    margin-left: 120px;
+}
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+}
+

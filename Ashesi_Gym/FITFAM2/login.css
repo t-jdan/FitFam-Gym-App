@@ -1,0 +1,110 @@
+/* top right bottom left */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0px 0px 10px ;    
+    background-color:whitesmoke;
+    height:700px;
+}
+
+#form1{
+    width: 500px; 
+    height: 640px; /* Adjust the height as needed */
+    background-color: #CC514A;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+    margin-left: 350px;
+}
+
+.place{
+    border-radius: 5px;
+    border-color: #332F64;
+    width: 250px;
+    height: 25px;
+}
+
+#login{
+    background-color: #A30A00;
+    padding: 5px 10px 5px 10px ;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border:none;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px ;
+}
+#emaillabel{
+   margin-right: 190px;
+}
+#passwordlabel{
+    margin-right: 160px;
+}
+
+#forgotpassword{
+    margin-left: 50px;
+    margin-right: 100px;
+    font-size: x-small;
+}
+#rMe{
+    margin-left: 120px;
+}
+
+#rememberMe{
+    font-size: x-small;
+    margin-left: 120px;
+}
+.remember-forgot {
+    display: flex;
+}
+
+#formleft{
+    background-image: url('p2.jpg');
+    height: 190px;
+    background-size: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+#formright{
+    margin-top: 50px;
+}
+#headings{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+#headingleft{
+float: left;
+margin-right: 850px;
+display: flex;
+align-items: center;
+}
+
+#headingright{
+float: right;
+display: flex;
+margin-right: 20px;
+}
+.fit {
+    font-family: "Copperplate", Fantasy;
+    font-size: 70px;
+  }
+  .fam{
+    font-family: cursive;
+    color: #A30A00;
+    font-size: 50px;
+  }
+
+  #logintxt{
+    margin-right: 20px;
+    color: #A30A00;
+  }
+
+  #signuptxt{
+    margin-left: 1px;
+    color: black;
+  }
