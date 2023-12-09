@@ -26,7 +26,7 @@ export const Profile = () => {
   return (
     <>
       <div className="px-5 py-5 overflow-y-auto space-y-4 w-full h-full">
-        <div>Admin information</div>
+        <div>Profile Details</div>
         <div className="w-full h-full flex gap-4">
           <div className="w-1/2">
             <div className="flex flex-col items-center space-y-3 h-[300px] w-auto space-x-2 p-4 rounded-lg border shadow-md">
