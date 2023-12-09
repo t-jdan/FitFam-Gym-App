@@ -85,7 +85,7 @@ function Sidebar() {
             data-id="/profile"
           >
             <UserRound />
-            <span>Admin Profile</span>
+            <span>Profile</span>
           </div>
         </a>
         <a
@@ -99,7 +99,7 @@ function Sidebar() {
         >
           <div
             data-id="/attendance"
-            className="flex items-center px-4 space-x-2 cursor-pointer"
+            className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
           >
             <BookCheck />
             <span>Attendance</span>
@@ -115,7 +115,7 @@ function Sidebar() {
           href="/equipment"
         >
           <div
-            className="flex items-center px-4 space-x-2 cursor-pointer"
+            className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
             data-id="/equipment"
           >
             <Archive />
@@ -131,10 +131,10 @@ function Sidebar() {
         >
           <div
             data-id="/trainers"
-            className="flex items-center px-4 space-x-2 cursor-pointer"
+            className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
           >
             <Users2 />
-            <span>View Trainers</span>
+            <span> Trainers</span>
           </div>
         </a>
 
@@ -154,7 +154,7 @@ function Sidebar() {
         >
           <div
             data-id="/report"
-            className="flex items-center px-4 space-x-2 cursor-pointer"
+            className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
           >
             <File />
             <span>Report</span>

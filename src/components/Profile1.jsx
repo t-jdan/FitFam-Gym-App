@@ -3,7 +3,7 @@ import { auth } from "../../firebaseConfig";
 import { useEffect, useState } from "react";
 import { updateProfile } from "firebase/auth";
 
-export const Profile = () => {
+export const Profile1 = () => {
   const [newUsername, setNewUsername] = useState(auth.currentUser?.displayName);
   const [newContact, setNewContact] = useState(auth.currentUser?.phoneNumber);
   const [user, setUser] = useState({});
