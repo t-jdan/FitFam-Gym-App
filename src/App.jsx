@@ -14,6 +14,10 @@ import { AdminProfile } from "./pages/AdminProfile";
 import TestPage from "./pages/Test";
 import {AdminEquipment} from "./pages/AdminEquipment";
 import {AdminTrainer} from "./pages/AdminTrainer";
+import { TrainerDashboard } from "./pages/TrainerDashboard";
+import {TrainerProfile} from "./pages/TrainerProfile";
+import {TrainerAttendance} from "./pages/TrainerAttendance";
+import {TrainerCompetition} from "./pages/TrainerCompetition";
 
 function App() {
   return (
@@ -22,13 +26,15 @@ function App() {
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Login />} />
           <Route path="/profile" element={<AdminProfile />} />
           <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/equipment" element={<AdminEquipment />} />
           <Route path="/trainers" element={<AdminTrainer />} />
-
+          <Route path="/trainerdashboard" element={<TrainerDashboard />} />
+          <Route path="/trainerprofile" element={<TrainerProfile />} />
+          <Route path="/trainerattendance" element={<TrainerAttendance />} />
+          <Route path="/competition" element={<TrainerCompetition />} />
         </Routes>
       </Router>
     </>
