@@ -14,6 +14,7 @@ import { AdminProfile } from "./pages/AdminProfile";
 import TestPage from "./pages/Test";
 import {AdminEquipment} from "./pages/AdminEquipment";
 import {AdminTrainer} from "./pages/AdminTrainer";
+import { StudentDashboard } from "./pages/StudentDashboard";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/profile" element={<AdminProfile />} />
           <Route path="/dashboard" element={<AdminDashboard />} />
+          <Route path="/stud_dashboard" element={<StudentDashboard />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/equipment" element={<AdminEquipment />} />
           <Route path="/trainers" element={<AdminTrainer />} />

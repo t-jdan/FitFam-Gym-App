@@ -39,7 +39,7 @@ function Sidebar() {
 
   return (
     <div className="w-[200px] h-screen bg-[#A30A00] text-white flex flex-col justify-between py-3">
-      <div className="flex items-center flex flex-col items-center px-5">
+      <div className="flex items-center flex-col px-5">
         <div className="w-20 h-20">
           <img
             className="rounded-full"

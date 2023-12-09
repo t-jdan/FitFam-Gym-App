@@ -29,7 +29,7 @@ export const Profile = () => {
         <div>Admin information</div>
         <div className="w-full h-full flex gap-4">
           <div className="w-1/2">
-            <div className="flex flex-col items-center space-y-3 h-[300px] w-auto items-center space-x-2 border p-4 rounded-lg border shadow-md">
+            <div className="flex flex-col items-center space-y-3 h-[300px] w-auto space-x-2 p-4 rounded-lg border shadow-md">
               <div>
                 <CircleUserRound size={60} />
               </div>
@@ -40,7 +40,7 @@ export const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col h-auto shadow-md items-center space-x-2 border p-4 rounded-lg border">
+          <div className="flex flex-col h-auto shadow-md items-center space-x-2 border p-4 rounded-lg">
             <div className="flex flex-col items-center space-y-5">
               <div className="flex flex-col items-start w-[400px] space-y-2">
                 <span>Username*</span>

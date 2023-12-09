@@ -51,7 +51,7 @@ export const RegularCard = ({ title, content }) => {
 
   return (
     <>
-      <div className="flex flex-col w-1/2 h-[200px] w-[200px] items-center space-x-2 border p-4 rounded-lg border shadow-md">
+      <div className="flex flex-col w-1/2 h-[200px] items-center space-x-2 border p-4 rounded-lg shadow-md">
         <div className="font-bold">{title}</div>
         <div>
           <p className="text-center text-3xl">
