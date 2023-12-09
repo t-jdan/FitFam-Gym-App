@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 
+
 export const SignUp = () => {
   const [userDetails, setUserDetails] = useState({
     id: "",
