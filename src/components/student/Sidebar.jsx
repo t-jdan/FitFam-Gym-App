@@ -76,14 +76,14 @@ import {
           </a>
           <a
             style={
-              isActive("/competition") ? { background: "white", color: "black" } : {}
+              isActive("/stud_competition") ? { background: "white", color: "black" } : {}
             }
-            className="flex items-center w-full space-x-2 cursor-pointer"
-            href="/competition"
+            className="flex items-center w-full cursor-pointer"
+            href="/stud_competition"
           >
             <div
               className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
-              data-id="/competition"
+              data-id="/stud_competition"
             >
               <Dumbbell />
               <span>Competition</span>
@@ -91,15 +91,15 @@ import {
           </a>
           <a
             style={
-              isActive("/attendance")
+              isActive("/trainer_schedule")
                 ? { background: "white", color: "black" }
                 : {}
             }
-            className="flex items-center space-x-2 cursor-pointer"
-            href="/attendance"
+            className="flex items-center w-full cursor-pointer"
+            href="/trainer_schedule"
           >
             <div
-              data-id="/attendance"
+              data-id="/trainer_schedule"
               className="flex items-center px-4 space-x-2 cursor-pointer"
             >
               <CalendarCheck />
@@ -108,16 +108,16 @@ import {
           </a>
           <a
             style={
-              isActive("/equipment")
+              isActive("/stud_complaint")
                 ? { background: "white", color: "black" }
                 : {}
             }
-            className="flex items-center space-x-2 cursor-pointer"
-            href="/equipment"
+            className="flex items-center w-full cursor-pointer"
+            href="/stud_complaint"
           >
             <div
               className="flex items-center px-4 space-x-2 cursor-pointer"
-              data-id="/equipment"
+              data-id="/stud_complaint"
             >
               <Flag />
               <span>Complaint</span>
@@ -125,13 +125,13 @@ import {
           </a>
           <a
             style={
-              isActive("/report") ? { background: "white", color: "black" } : {}
+              isActive("/stud_profile") ? { background: "white", color: "black" } : {}
             }
             className="flex items-center space-x-2 cursor-pointer"
-            href="/report"
+            href="/stud_profile"
           >
             <div
-              data-id="/report"
+              data-id="/stud_profile"
               className="flex items-center px-4 space-x-2 cursor-pointer"
             >
               <UserRound />
