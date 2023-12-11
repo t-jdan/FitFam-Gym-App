@@ -59,7 +59,7 @@ export const SignUp = () => {
       updateUser({...userDetails, role: 2})
 
       console.log("User registered and data stored successfully");
-      navigate("/dashboard"); // Redirect or update UI
+      navigate("/login"); // Redirect or update UI
     } catch (error) {
       console.error("Error during registration: ", error.message);
       alert(error.message); // Display error message

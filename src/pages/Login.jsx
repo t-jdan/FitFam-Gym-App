@@ -28,7 +28,7 @@ export const Login = () => {
           } else if (userDataDoc.data().role == 1) {
             navigate("/trainerdashboard");
           } else {
-            navigate("/competition");
+            navigate("/stud_dashboard");
           }
         }
       })
