@@ -95,12 +95,12 @@ import {
                 ? { background: "white", color: "black" }
                 : {}
             }
-            className="flex items-center w-full cursor-pointer"
+            className="flex items-center  w-full cursor-pointer"
             href="/trainer_schedule"
           >
             <div
               data-id="/trainer_schedule"
-              className="flex items-center px-4 space-x-2 cursor-pointer"
+              className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
             >
               <CalendarCheck />
               <span>Trainer Schedule</span>
@@ -112,11 +112,11 @@ import {
                 ? { background: "white", color: "black" }
                 : {}
             }
-            className="flex items-center w-full cursor-pointer"
+            className="flex items-center  w-full cursor-pointer"
             href="/stud_complaint"
           >
             <div
-              className="flex items-center px-4 space-x-2 cursor-pointer"
+              className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
               data-id="/stud_complaint"
             >
               <Flag />
@@ -132,7 +132,7 @@ import {
           >
             <div
               data-id="/stud_profile"
-              className="flex items-center px-4 space-x-2 cursor-pointer"
+              className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
             >
               <UserRound />
               <span>Profile</span>
