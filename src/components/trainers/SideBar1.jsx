@@ -125,23 +125,22 @@ function Sidebar() {
             <span>Competition</span>
           </div>
         </Link>
-        <Link
-            style={
-              isActive("/leaderboard")
-                ? { background: "white", color: "black" }
-                : {}
-            }
-            className="flex items-center  w-full cursor-pointer"
-            href="/leaderboard"
+
+<Link
+          style={
+            isActive("/viewleaderboard") ? { background: "white", color: "black" } : {}
+          }
+          className="flex items-center space-x-2 cursor-pointer"
+          to="/viewleaderboard"
+        >
+          <div
+            data-id="/viewleaderboard"
+            className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
           >
-            <div
-              className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
-              data-id="/leaderboard"
-            >
-              <Trophy/>
-              <span>Leaderboard</span>
-            </div>
-            </Link>
+            <Trophy />
+            <span>Leaderboard</span>
+          </div>
+        </Link>
        
         <Link
           style={
@@ -159,22 +158,16 @@ function Sidebar() {
           </div>
           </Link>
 
-        {/* <div
-            data-id="/trainers"
-            className="flex items-center px-4 space-x-2 cursor-pointer"
-          >
-            <Dumbbell />
-            <span>Trainers</span>
-          </div> */}
+       
         <Link
           style={
-            isActive("/complaint") ? { background: "white", color: "black" } : {}
+            isActive("/viewcomplaint") ? { background: "white", color: "black" } : {}
           }
           className="flex items-center space-x-2 cursor-pointer"
-          to="/complaint"
+          to="/viewcomplaint"
         >
           <div
-            data-id="/complaint"
+            data-id="/viewcomplaint"
             className="flex items-center px-4 py-2 space-x-2 cursor-pointer"
           >
             <File />

@@ -86,7 +86,10 @@ export const CompetitionCard = ({ competition }) => {
     return (
         <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
             <h3 className="text-lg font-semibold text-gray-800">{competition.name}</h3>
-            {/* ... other competition details ... */}
+            <p className="text-gray-600">Prize: {competition.prize}</p>
+            <p className="text-gray-600">Rules: {competition.rules}</p>
+            <p className="text-gray-600">Start Date: {competition.startDate}</p>
+            <p className="text-gray-600">End Date: {competition.endDate}</p>
             {!participating ? (
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleParticipate}>Participate</button>
             ) : (

@@ -9,6 +9,11 @@ export const AttendanceComponent = () => {
 
   useEffect(() => {
     fetchAttendance();
+    const savedAttendanceDocId = localStorage.getItem("attendanceDocId");
+    console.log("Retrieved attendanceDocId from localStorage:", savedAttendanceDocId); // For debugging
+    if (savedAttendanceDocId) {
+      setAttendanceDocId(savedAttendanceDocId);
+    }
   }, []);
 
   const handleCheckIn = async () => {
@@ -22,6 +27,7 @@ export const AttendanceComponent = () => {
       setAttendanceDocId(docRef.id);
       setMessage("You have successfully checked in."); // Set check-in message
       fetchAttendance();
+      localStorage.setItem("attendanceDocId", docRef.id); // Save to local storage
     } catch (error) {
       console.error("Error during check-in: ", error);
       setMessage("Error during check-in."); // Set error message
@@ -30,10 +36,19 @@ export const AttendanceComponent = () => {
 
   const handleCheckOut = async () => {
     try {
+      console.log("Current attendanceDocId:", attendanceDocId); // For debugging
+      // Ensure there is a valid attendanceDocId before proceeding
+      if (!attendanceDocId) {
+        console.error("No attendance document ID found for check-out.");
+        setMessage("No check-in record found for check-out."); // Set an appropriate message
+        return; // Exit the function if no ID is found
+      }
+  
       const attendanceRef = doc(db, "attendance", attendanceDocId);
       await updateDoc(attendanceRef, {
         checkOutTime: new Date()
       });
+      localStorage.removeItem("attendanceDocId"); // Remove from local storage
       setAttendanceDocId(null);
       setMessage("You have successfully checked out."); // Set check-out message
       fetchAttendance();
@@ -42,6 +57,7 @@ export const AttendanceComponent = () => {
       setMessage("Error during check-out."); // Set error message
     }
   };
+  
 
   const fetchAttendance = async () => {
     try {

@@ -32,6 +32,7 @@ export const Competition = () => {
         <div className="container mx-auto mt-4">
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-xl font-bold">Competitions</h1>
+                
                 <input 
                     type="text"
                     placeholder="Search competitions..."

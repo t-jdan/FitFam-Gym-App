@@ -21,8 +21,9 @@ import { TrainerSchedule } from "./pages/Student/TrainerSchedule";
 import { TrainerSchedule1 } from "./pages/trainer/TrainerSchedule1";
 import { StudentProfile } from "./pages/Student/StudentProfile";
 import { StudentComplaint } from "./pages/Student/StudentComplaint";
-import { Complaint } from "./components/student/Complaint";
+import { Complaint } from "./pages/trainer/Complaint";
 import { GymLeaderboard } from "./pages/Student/GymLeaderboard";
+import {CompetitionList} from "./pages/trainer/ViewLeaderboard";
 
 
 function App() {
@@ -30,23 +31,32 @@ function App() {
     <>
       <Router>
         <Routes>
+           {/* Main routes */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<HomePage />} />
+
+           {/* Admin routes */}
           <Route path="/profile" element={<AdminProfile />} />
           <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/equipment" element={<AdminEquipment />} />
           <Route path="/trainers" element={<AdminTrainer />} />
           <Route path="/attendance" element={<ViewAttendance />} />
+          <Route path="/schedule" element={<SchedulePage />} />
+          <Route path="/report" element={<Report />} />
+          
+
+           {/* Trainer */}
           <Route path="/trainerdashboard" element={<TrainerDashboard />} />
           <Route path="/trainerprofile" element={<TrainerProfile />} />
           <Route path="/trainerattendance" element={<TrainerAttendance />} />
           <Route path="/competition" element={<TrainerCompetition />} />
           <Route path="/trainerschedule" element={<TrainerSchedule1 />} />
-          <Route path="/complaint" element={<Complaint />} />
-          <Route path="/schedule" element={<SchedulePage />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/report" element={<Report />} />
+          <Route path="/viewcomplaint" element={<Complaint />} />
+          <Route path="/viewleaderboard" element={<CompetitionList />} />
+          
+          
            {/* Student */}
            <Route path="/stud_dashboard" element={<StudentDashboard />} />
           <Route path="/stud_competition" element={<StudentCompetition />} />
