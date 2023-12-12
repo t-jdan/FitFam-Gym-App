@@ -1,37 +1,37 @@
 
 // Import images - replace these imports with the actual paths to your images
-import naruto from '../assets/naruto.jpeg';
+import Ernest from '../assets/Ernest.jpg';
 import jiraya from '../assets/jiraya.jpeg';
-import sasuke from '../assets/sasuke.jpeg';
-import boruto from '../assets/boruto.jpeg';
+import Jovan from '../assets/Jovan.jpg';
+import Roger from '../assets/Roger.jpg';
 
 const teamMembers = [
   {
-    name: 'Naruto',
+    name: 'Ernest Torto',
     role: 'Product Manager',
-    image: naruto,
-    bio: 'Naruto leads our product team with a decade of experience in project management.',
+    image: Ernest,
+    bio: 'Ernest  leads our product team with a decade of experience in project management.',
     linkedin: 'https://www.linkedin.com/in/janedoe',
   },
   {
-    name: 'Jiraya',
+    name: 'Jordan Teye',
     role: 'Lead Developer',
     image: jiraya,
     bio: 'Jiraya is the architect behind the FitFam app, specializing in scalable solutions.',
     linkedin: 'https://www.linkedin.com/in/johnsmith',
   },
   {
-    name: 'Boruto',
+    name: 'Roger Osae',
     role: 'UX/UI Designer',
-    image: boruto,
-    bio: 'Boruto designs intuitive user experiences and engaging app interfaces.',
+    image: Roger,
+    bio: 'Roger designs intuitive user experiences and engaging app interfaces.',
     linkedin: 'https://www.linkedin.com/in/alicejohnson',
   },
   {
-    name: 'Sasuke',
+    name: 'Jude Jovan ',
     role: 'Fitness Consultant',
-    image: sasuke,
-    bio: 'Sasuke brings fitness expertise to ensure our app meets the needs of fitness enthusiasts.',
+    image: Jovan,
+    bio: 'Jude brings fitness expertise to ensure our app meets the needs of fitness enthusiasts.',
     linkedin: 'https://www.linkedin.com/in/bobbrown',
   },
 ];
