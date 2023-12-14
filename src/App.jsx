@@ -11,7 +11,7 @@ import { TrainerProfile } from "./pages/trainer/TrainerProfile";
 import { TrainerAttendance } from "./pages/trainer/TrainerAttendance";
 import { TrainerCompetition } from "./pages/trainer/TrainerCompetition";
 import { SchedulePage } from "./pages/admin/Schedule";
-import { HomePage } from "./pages/Homepage";
+import { HomePage } from "./pages/HomePage.jsx";
 import { AboutPage } from "./pages/AboutPage";
 import { ViewAttendance } from "./pages/admin/ViewAttendance";
 import { Report } from "./pages/admin/Report";
