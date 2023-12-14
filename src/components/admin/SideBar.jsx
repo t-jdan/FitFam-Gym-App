@@ -14,6 +14,8 @@ import { auth } from "../../../firebaseConfig";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import useUserStore from "../../store/useUserStore";
+import AshesiLogo from "../../assets/AshesiLogo.jpeg"
+
 
 function Sidebar() {
   const location = useLocation();
@@ -48,8 +50,9 @@ function Sidebar() {
       <div className="flex items-center flex flex-col items-center px-5">
         <div className="w-20 h-20">
           <img
-            className="rounded-full"
-            src="https://th.bing.com/th/id/OIP.2ZBBR3boEmD38j7QHUM6YAHaHa?w=193&h=193&c=7&r=0&o=5&pid=1.7"
+            className="rounded"
+            src={AshesiLogo} 
+            alt="Ashesi Logo"
           />
         </div>
         {auth.currentUser && (

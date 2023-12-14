@@ -1,8 +1,15 @@
+/**
+ * This is a React component that fetches and displays a list of competitions, with the ability to
+ * search for specific competitions by name or prize.
+ * @returns The `Competition` component is returning a JSX element, which represents the UI of the
+ * component. It includes a container div with a heading and an input field for searching competitions.
+ * Below that, it renders a grid of `CompetitionCard` components based on the filtered competitions.
+ */
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs, addDoc, doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebaseConfig';
 import { CompetitionCard } from './CompetitionCard';
-import { auth } from '../../../firebaseConfig'; // Assuming you are using Firebase Authentication
+
 
 export const Competition = () => {
     const [competitions, setCompetitions] = useState([]);
@@ -22,6 +29,10 @@ export const Competition = () => {
         );
     }, [searchTerm, competitions]);
 
+    /**
+     * The function fetchCompetitions fetches competition data from a Firestore collection and sets it
+     * in the state.
+     */
     const fetchCompetitions = async () => {
         const querySnapshot = await getDocs(collection(db, "competition"));
         setCompetitions(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));

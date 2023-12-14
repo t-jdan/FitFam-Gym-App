@@ -25,11 +25,15 @@ export const ScheduleDisplay = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         style={{ padding: '10px', marginBottom: '20px', width: '100%', boxSizing: 'border-box' }}
       />
-      <div style={{ 
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-        gap: '20px' 
-      }}>
+      <div 
+      className='w-full grid grid-cols-4 gap-4' 
+      // style={{ 
+        
+      //   // display: 'grid',
+      //   // gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
+      //   // gap: '20px' 
+      // }}
+      >
         {schedules.filter(schedule => 
           schedule.day.toLowerCase().includes(searchTerm.toLowerCase())
         ).map(schedule => (

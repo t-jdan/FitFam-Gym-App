@@ -62,7 +62,19 @@ export const SignUp = () => {
       console.log("User registered and data stored successfully");
       navigate("/login");
     } catch (error) {
-      setError(error.message);
+      switch (error.code) {
+        case "auth/weak-password":
+          setError("Password should be at least 6 characters long.");
+          break;
+        case "auth/email-already-in-use":
+          setError("An account with this email address already exists.");
+          break;
+        case "auth/invalid-email":
+          setError("Invalid email address. Please enter a valid email.");
+          break;
+        default:
+          setError("An error occurred while registering. Please try again later.");
+      }
     }
   };
 

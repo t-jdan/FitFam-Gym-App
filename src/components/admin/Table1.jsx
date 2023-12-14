@@ -27,6 +27,13 @@ export const Table1 = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isEditMode, setIsEditMode] = useState(false);
   const [currentEditingId, setCurrentEditingId] = useState(null);
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+    status: "",
+    email: "",
+    startDate: "",
+  });
 
   useEffect(() => {
     const fetchTrainer = async () => {
@@ -71,6 +78,7 @@ export const Table1 = () => {
     setfirstName(trainer.firstName);
     setlastName(trainer.lastName);
     setStatus(trainer.status);
+    setEmail(trainer.email);
     setstartDate(trainer.startDate);
     setIsModalOpen(true);
   };
@@ -80,7 +88,52 @@ export const Table1 = () => {
     await updateDoc(doc(db, "trainers", id), updatedTrainer);
   };
 
-  // Modify handleSubmit to handle both add and update
+
+
+  //Function for form validation
+  const validateForm = () => {
+    let isValid = true;
+    const newFormErrors = {
+      firstName: "",
+      lastName: "",
+      status: "",
+      email: "",
+      
+      startDate: "",
+    };
+
+    if (!firstName.trim()) {
+      newFormErrors.firstName = "First name is required.";
+      isValid = false;
+    }
+
+    if (!lastName.trim()) {
+      newFormErrors.lastName = "last name  is required.";
+      isValid = false;
+    }
+
+    if (!status.trim()) {
+      newFormErrors.status = "Status must be 'active' or 'inactive'.";
+      isValid = false;
+    }
+
+    if (!email.trim()) {
+      newFormErrors.email = "email is required.";
+      isValid = false;
+    }
+    
+
+    if (!startDate.trim()) {
+      newFormErrors.startDate = "startDate is required.";
+      isValid = false;
+    }
+
+    setFormErrors(newFormErrors);
+    return isValid;
+  };
+
+
+  // handleSubmit to handle both add and update
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newTrainer = {
@@ -91,7 +144,7 @@ export const Table1 = () => {
       password,
       startDate,
     };
-
+    if (!validateForm()) return;
     try {
       if (isEditMode) {
         await updateTrainer(currentEditingId, newTrainer);
@@ -138,6 +191,14 @@ export const Table1 = () => {
       setStatus("");
       setstartDate("");
       setIsModalOpen(false);
+      setFormErrors({
+        equipmentID: "",
+        name: "",
+        status: "",
+        email: "",
+        password: "",
+        maintenanceSchedule: "",
+      });
     } catch (error) {
       console.error("Error adding/updating trainer: ", error);
     }
@@ -160,6 +221,7 @@ export const Table1 = () => {
     setfirstName("");
     setlastName("");
     setStatus("");
+    setEmail(""),
     setstartDate("");
     setIsModalOpen(false);
   };
@@ -195,8 +257,15 @@ export const Table1 = () => {
                   value={firstName}
                   onChange={(e) => setfirstName(e.target.value)}
                   placeholder="Enter Trainer Firstname"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.firstName ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.firstName && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.firstName}
+                  </p>
+                )}
               </div>
 
               {/* Name */}
@@ -209,8 +278,15 @@ export const Table1 = () => {
                   value={lastName}
                   onChange={(e) => setlastName(e.target.value)}
                   placeholder="Enter Trainer LastName"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.lastName ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.lastName && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.lastName}
+                  </p>
+                )}
               </div>
 
               <div className="mb-4">
@@ -222,8 +298,15 @@ export const Table1 = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter Trainer Email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.email ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.email && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.email}
+                  </p>
+                )}
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -247,8 +330,15 @@ export const Table1 = () => {
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                   placeholder="Enter Status"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.status ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.status && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.status}
+                  </p>
+                )}
               </div>
 
               {/* Maintenance Schedule */}
@@ -261,8 +351,15 @@ export const Table1 = () => {
                   value={startDate}
                   onChange={(e) => setstartDate(e.target.value)}
                   placeholder="Enter Trainer start date"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.startDate ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.startDate && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.startDate}
+                  </p>
+                )}
               </div>
 
               {/* Submit Button */}

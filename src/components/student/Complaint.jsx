@@ -32,8 +32,8 @@ export const Complaint = () => {
   };
 
   return (
-    <div className="complaint-container">
-      <h2 className="text-black font-bold py-2 px-4 mb-10">Submit Your Complaint</h2>
+    <div className="complaint-container w-full h-full flex flex-col items-center justify-center">
+      <h2 className="text-black font-bold py-2 px-4 text-left text-xl">Submit Your Complaint</h2>
       <form className="complaint-form" onSubmit={handleSubmit}>
         <textarea
           className="complaint-textarea"
@@ -41,7 +41,7 @@ export const Complaint = () => {
           onChange={(e) => setComplaint(e.target.value)}
           placeholder="Type your complaint here..."
         />
-        <button type="submit" className="bg-black hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full mr-2">Submit Complaint</button>
+        <button type="submit" className="bg-black hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full mr-2 w-full">Submit Complaint</button>
       </form>
     </div>
   );

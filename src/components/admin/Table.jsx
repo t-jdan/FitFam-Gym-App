@@ -15,7 +15,12 @@ export const Table = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isEditMode, setIsEditMode] = useState(false); // New state to track edit mode
   const [currentEditingId, setCurrentEditingId] = useState(null); // State to track the ID of the equipment being edited
-
+  const [formErrors, setFormErrors] = useState({
+    equipmentID: "",
+    name: "",
+    status: "",
+    maintenanceSchedule: "",
+  });
   useEffect(() => {
     const fetchEquipment = async () => {
       try {
@@ -67,9 +72,44 @@ export const Table = () => {
     setIsModalOpen(true);
   };
 
+  //Function for form validation
+  const validateForm = () => {
+    let isValid = true;
+    const newFormErrors = {
+      equipmentID: "",
+      name: "",
+      status: "",
+      maintenanceSchedule: "",
+    };
+
+    if (!equipmentID.trim()) {
+      newFormErrors.equipmentID = "Equipment ID is required.";
+      isValid = false;
+    }
+
+    if (!name.trim()) {
+      newFormErrors.name = "Name is required.";
+      isValid = false;
+    }
+
+    if (!status.trim()) {
+      newFormErrors.status = "Status must be 'active' or 'inactive'.";
+      isValid = false;
+    }
+
+    if (!maintenanceSchedule.trim()) {
+      newFormErrors.maintenanceSchedule = "Maintenance Schedule is required.";
+      isValid = false;
+    }
+
+    setFormErrors(newFormErrors);
+    return isValid;
+  };
+
   // Function to handle submit for both add and update
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     try {
       if (isEditMode) {
         // Update logic
@@ -113,6 +153,12 @@ export const Table = () => {
       setStatus("");
       setMaintenanceSchedule("");
       setIsModalOpen(false);
+      setFormErrors({
+        equipmentID: "",
+        name: "",
+        status: "",
+        maintenanceSchedule: "",
+      });
     } catch (error) {
       console.error("Error adding/updating equipment: ", error);
     }
@@ -170,8 +216,15 @@ export const Table = () => {
                   value={equipmentID}
                   onChange={(e) => setEquipmentID(e.target.value)}
                   placeholder="Enter Equipment ID"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.equipmentID ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                {formErrors.equipmentID && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.equipmentID}
+                  </p>
+                )}
               </div>
 
               {/* Name */}
@@ -184,8 +237,15 @@ export const Table = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter Equipment Name"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.name ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                 {formErrors.name && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.name}
+                  </p>
+                )}
               </div>
 
               {/* Status */}
@@ -197,9 +257,16 @@ export const Table = () => {
                   type="text"
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
-                  placeholder="Enter Status"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="Enter Status('active' or 'inactive')"
+                  className={`shadow appearance-none border ${
+                    formErrors.status ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                 {formErrors.status && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.status}
+                  </p>
+                )}
               </div>
 
               {/* Maintenance Schedule */}
@@ -212,8 +279,15 @@ export const Table = () => {
                   value={maintenanceSchedule}
                   onChange={(e) => setMaintenanceSchedule(e.target.value)}
                   placeholder="Enter Maintenance Schedule"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className={`shadow appearance-none border ${
+                    formErrors.maintenanceSchedule ? "border-red-500" : "border"
+                  } rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
                 />
+                   {formErrors.maintenanceSchedule && (
+                  <p className="text-red-500 text-xs italic">
+                    {formErrors.maintenanceSchedule}
+                  </p>
+                )}
               </div>
 
               {/* Submit Button */}

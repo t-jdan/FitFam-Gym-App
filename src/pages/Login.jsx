@@ -9,6 +9,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // State to handle errors
+  const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const navigate = useNavigate();
 
   const { updateUser, user } = useUserStore();
@@ -40,21 +41,49 @@ export const Login = () => {
         const userDataDoc = await getDoc(doc(db, "user_data", res.user.uid));
         if (userDataDoc.exists()) {
           updateUser(userDataDoc.data());
+
+          // Show the success modal
+          setShowSuccessModal(true);
+
           // Navigate based on user role
-          switch(userDataDoc.data().role) {
-            case 0:
-              navigate("/dashboard");
-              break;
-            case 1:
-              navigate("/trainerdashboard");
-              break;
-            default:
-              navigate("/stud_dashboard");
-          }
+          setTimeout(() => {
+            // Navigate based on user role
+            switch (userDataDoc.data().role) {
+              case 0:
+                navigate("/dashboard");
+                break;
+              case 1:
+                navigate("/trainerdashboard");
+                break;
+              default:
+                navigate("/stud_dashboard");
+            }
+          }, 2000)
         }
       })
-      .catch((e) => setError(e.message)); // Display an error message for authentication issues
+      .catch((error) => {
+        // Display user-friendly error messages
+        if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+          setError("Invalid email or password. Please check your credentials and try again.");
+        } else if (error.code === "auth/invalid-email") {
+          setError("Invalid email address. Please enter a valid email.");
+        } else {
+          setError("An error occurred while logging in. Please try again later.");
+        }
+      }) // Display an error message for authentication issues
   };
+
+  useEffect(() => {
+    if (showSuccessModal) {
+      // Automatically hide the success modal after 2 seconds (adjust as needed)
+      const timeout = setTimeout(() => {
+        setShowSuccessModal(false);
+      }, 2000);
+
+      // Clear the timeout when the component unmounts or when the modal is closed manually
+      return () => clearTimeout(timeout);
+    }
+  }, [showSuccessModal]);
 
   return (
     <>
@@ -95,6 +124,14 @@ export const Login = () => {
           </button>
         </div>
       </div>
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+            <h2 className="text-2xl font-bold mb-4">Login Successful!</h2>
+            {/* Additional success message or information can be added here */}
+          </div>
+        </div>
+      )}
     </>
   );
 };

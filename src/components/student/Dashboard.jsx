@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { auth, db } from "../../../firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { HorizontalCard } from "./HorizontalCard";
-import { RegularCard } from "./RegularCard";
+import { RegularCard } from "../admin/RegularCard";
 
 export const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -21,10 +21,11 @@ export const Dashboard = () => {
 
   const fetchUserCompetitions = async (userId) => {
     try {
-      const q = query(collection(db, "competition"), where("participants", "array-contains", userId));
+      const q = query(collection(db, "competition"));
       const querySnapshot = await getDocs(q);
       const competitions = querySnapshot.docs.map(doc => doc.data());
       setUserCompetitions(competitions);
+      console.log(competitions)
     } catch (error) {
       console.error("Error fetching user competitions: ", error);
     }
@@ -37,13 +38,13 @@ export const Dashboard = () => {
           <HorizontalCard name={auth.currentUser?.displayName} />
         </div>
         <div>
-          <RegularCard title="Number of Competitions" content={`You are participating in ${userCompetitions.length} competitions`} />
+          <RegularCard title="Available Competitions" value={`(${userCompetitions?.length})`} />
         </div>
         <div>
           <div className="mt-5">
             <h2 className="text-xl font-semibold mb-3">Your Competitions</h2>
             {userCompetitions.map((comp, index) => (
-              <RegularCard key={index} title={comp.name} content={comp.description} />
+              <RegularCard key={index} title={comp.name} value={comp.description} />
             ))}
           </div>
         </div>

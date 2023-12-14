@@ -87,11 +87,16 @@ export const AttendanceComponent = () => {
       </div>
       {message && <p className="text-center text-lg my-4">{message}</p>} {/* Display the message */}
       {/* Render attendance records in a grid */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-        gap: '20px' 
-      }}>
+      <div 
+        className="grid grid-cols-4 w-full gap-4 p-4"
+      // style={{ 
+      //   display: 'grid', 
+      //   gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
+      //   gap: '20px', 
+      //   width: '100%'
+      // }}
+      
+      >
         {attendanceRecords.map(record => (
           <div key={record.id} className="bg-white p-4 rounded shadow">
             <p><strong>Email:</strong> {record.email}</p>

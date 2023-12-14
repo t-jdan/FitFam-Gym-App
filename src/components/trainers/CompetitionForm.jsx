@@ -11,6 +11,10 @@ export const CompetitionForm = ({onNewCompetition,onClose,onUpdateCompetition, e
         endDate: ''
     });
 
+    // Add errors state
+  const [errors, setErrors] = useState({});
+
+
     // Pre-fill form data when editing a competition
     useEffect(() => {
         if (editingCompetition) {
@@ -26,10 +30,25 @@ export const CompetitionForm = ({onNewCompetition,onClose,onUpdateCompetition, e
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setErrors({ ...errors, [e.target.name]: '' });
     };
+
+    const validateForm = () => {
+        let newErrors = {};
+        if (!formData.name.trim()) newErrors.name = 'Competition Name is required';
+        if (!formData.prize.trim()) newErrors.prize = 'Prize is required';
+        if (!formData.rules.trim()) newErrors.rules = 'Rules are required';
+        if (!formData.startDate.trim()) newErrors.startDate = 'Start Date is required';
+        if (!formData.endDate.trim()) newErrors.endDate = 'End Date is required';
+    
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
+
         try {
             if (editingCompetition) {
                 // Update competition if editing
@@ -54,7 +73,7 @@ export const CompetitionForm = ({onNewCompetition,onClose,onUpdateCompetition, e
                 onChange={handleChange}
                 placeholder="Competition Name"
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            />{errors.name && <div className="text-red-500 text-sm">{errors.name}</div>}
             <input 
                 type="text"
                 name="prize"
@@ -62,28 +81,28 @@ export const CompetitionForm = ({onNewCompetition,onClose,onUpdateCompetition, e
                 onChange={handleChange}
                 placeholder="Prize"
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            />{errors.prize && <div className="text-red-500 text-sm">{errors.prize}</div>}
             <textarea 
                 name="rules"
                 value={formData.rules}
                 onChange={handleChange}
                 placeholder="Rules"
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
+            ></textarea>{errors.rules && <div className="text-red-500 text-sm">{errors.rules}</div>}
             <input 
                 type="date"
                 name="startDate"
                 value={formData.startDate}
                 onChange={handleChange}
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            />{errors.startDate && <div className="text-red-500 text-sm">{errors.startDate}</div>}
             <input 
                 type="date"
                 name="endDate"
                 value={formData.endDate}
                 onChange={handleChange}
                 className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            />{errors.endDate && <div className="text-red-500 text-sm">{errors.endDate}</div>}
             <button 
                 type="submit"
                 className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"

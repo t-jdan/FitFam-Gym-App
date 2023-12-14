@@ -20,6 +20,8 @@ export const SchedulePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [user] = useAuthState(auth); // This hook provides the current logged-in user
   const [schedules, setSchedules] = useState([]);
+
+  
   // Function to add a new schedule to Firestore and update the local state
   const handleSaveSchedule = async (scheduleEntries) => {
     if (!user) {
@@ -40,8 +42,8 @@ export const SchedulePage = () => {
           userEmail: entry.userEmail,
         });
   
-        setSchedules([
-          ...schedules,
+        setSchedules((prevSchedules) => [
+          ...prevSchedules,
           { ...entry, id: docRef.id },
         ]);
       }
