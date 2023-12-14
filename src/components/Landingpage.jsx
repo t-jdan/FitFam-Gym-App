@@ -1,5 +1,5 @@
 
-import fitfam from "../assets/fitfam.jpeg"
+import fitfam from "../assets/fitfam2.jpg"
 export const LandingPage = () => {
   return (
     <div className="font-sans">
