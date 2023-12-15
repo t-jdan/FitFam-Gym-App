@@ -14,7 +14,13 @@ export function HomePage() {
   }, [])
   return (
     <div className="App">
-      <LandingPage />
+      {isLoading ? (
+        <LoadingSpinner/>
+      ) : (
+        <div>
+        <LandingPage />
+        </div>
+      )}
     </div>
   );
 }
