@@ -87,51 +87,52 @@ export const Login = () => {
 
   return (
     <>
-      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#ECE9E9] space-y-4">
-        <div className="font-bold text-2xl mb-5">Login</div>
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col items-start w-[400px] space-y-2">
-            <span>Email*</span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="p-2 rounded-xl w-full border"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className="flex flex-col items-start w-[400px] space-y-2">
-            <span>Password*</span>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="p-2 rounded-xl w-full border"
-              placeholder="Enter your password"
-            />
-          </div>
-        </div>
-        {error && <div className="text-red-500 mb-3">{error}</div>} {/* Display error message */}
-        <div>
-          Don't have an account? <a href="/signup" className="text-blue-600">Sign up</a>
-        </div>
-        <div className="w-[400px]">
-          <button
-            onClick={handleLogin}
-            className="bg-[#A30A00] p-2 rounded-xl w-full text-white font-semibold"
-          >
-            Login
-          </button>
-        </div>
+  <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#ECE9E9] space-y-4">
+    <div className="font-bold text-2xl mb-5">Login</div>
+    <div className="flex flex-col items-center w-full md:w-[400px]">
+      <div className="flex flex-col items-start w-full space-y-2">
+        <span>Email*</span>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="p-2 rounded-xl w-full border"
+          placeholder="Enter your email"
+        />
       </div>
-      {showSuccessModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
-            <h2 className="text-2xl font-bold mb-4">Login Successful!</h2>
-            {/* Additional success message or information can be added here */}
-          </div>
-        </div>
-      )}
-    </>
+      <div className="flex flex-col items-start w-full space-y-2">
+        <span>Password*</span>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-2 rounded-xl w-full border"
+          placeholder="Enter your password"
+        />
+      </div>
+    </div>
+    {error && <div className="text-red-500 mb-3">{error}</div>}
+    <div>
+      Don't have an account? <a href="/signup" className="text-blue-600">Sign up</a>
+    </div>
+    <div className="w-full md:w-[400px]">
+      <button
+        onClick={handleLogin}
+        className="bg-[#A30A00] p-2 rounded-xl w-full text-white font-semibold"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+  {showSuccessModal && (
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
+      <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+        <h2 className="text-2xl font-bold mb-4">Login Successful!</h2>
+        {/* Additional success message or information can be added here */}
+      </div>
+    </div>
+  )}
+</>
+
   );
 };

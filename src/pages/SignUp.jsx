@@ -80,51 +80,51 @@ export const SignUp = () => {
 
   return (
     <>
-      <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#ECE9E9] space-y-4">
-        <div className="font-bold text-2xl mb-5">Sign Up</div>
-        <form className="grid grid-cols-2 gap-x-4" onSubmit={handleSubmit}>
-          {/* Input fields */}
-          {Object.entries(userDetails).map(([key, value]) => (
-            key !== 'confirmPassword' && (
-              <div className="flex flex-col items-start w-[400px] space-y-2" key={key}>
-                <span>{key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}*</span>
-                <input
-                  name={key}
-                  type={key === 'password' ? 'password' : key === 'dateOfBirth' ? 'date' : 'text'}
-                  className="p-2 rounded-xl w-full"
-                  value={value}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-            )
-          ))}
-          {/* Confirm Password */}
-          <div className="flex flex-col items-start w-[400px] space-y-2">
-            <span>Confirm Password*</span>
-            <input
-              name="confirmPassword"
-              type="password"
-              className="p-2 rounded-xl w-full"
-              value={userDetails.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          {error && <div className="text-red-500 mb-3">{error}</div>}
-        </form>
-        <div>
-          Already have an account? <a href="/login" className="text-blue-600">Login</a>
+    <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#ECE9E9] space-y-4">
+      <div className="font-bold text-2xl mb-5">Sign Up</div>
+      <form className="grid grid-cols-1 md:grid-cols-2 gap-x-4 w-full md:w-[80%]" onSubmit={handleSubmit}>
+        {/* Input fields */}
+        {Object.entries(userDetails).map(([key, value]) => (
+          key !== 'confirmPassword' && (
+            <div className="flex flex-col items-start w-full md:w-[400px] space-y-2" key={key}>
+              <span>{key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim()}*</span>
+              <input
+                name={key}
+                type={key === 'password' ? 'password' : key === 'dateOfBirth' ? 'date' : 'text'}
+                className="p-2 rounded-xl w-full"
+                value={value}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          )
+        ))}
+        {/* Confirm Password */}
+        <div className="flex flex-col items-start w-full md:w-[400px] space-y-2">
+          <span>Confirm Password*</span>
+          <input
+            name="confirmPassword"
+            type="password"
+            className="p-2 rounded-xl w-full"
+            value={userDetails.confirmPassword}
+            onChange={handleChange}
+            required
+          />
         </div>
-        <div className="w-1/2">
-          <button
-            onClick={handleSubmit}
-            className="bg-[#A30A00] p-2 rounded-xl w-full text-white font-semibold"
-          >
-            Register
-          </button>
-        </div>
+        {error && <div className="text-red-500 mb-3">{error}</div>}
+      </form>
+      <div>
+        Already have an account? <a href="/login" className="text-blue-600">Login</a>
       </div>
-    </>
+      <div className="w-full md:w-1/2">
+        <button
+          onClick={handleSubmit}
+          className="bg-[#A30A00] p-2 rounded-xl w-full text-white font-semibold"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </>
   );
 };
