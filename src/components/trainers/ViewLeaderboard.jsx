@@ -43,8 +43,9 @@ export const ViewLeaderboard = ({ competitionId }) => {
     }
   };
   return (
+    <div><h2 className="text-black font-bold py-2 px-4 text-left text-xl">Leaderboard</h2>
     <div>
-      <h2>Leaderboard</h2>
+      
       <table className="min-w-full leading-normal">
   <thead>
     <tr>
@@ -76,6 +77,7 @@ export const ViewLeaderboard = ({ competitionId }) => {
   </tbody>
 </table>
 
+    </div>
     </div>
   );
 };

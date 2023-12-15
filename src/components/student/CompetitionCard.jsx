@@ -9,6 +9,7 @@ import { db } from '../../../firebaseConfig';
 import { doc, setDoc, updateDoc, deleteDoc, getDoc } from 'firebase/firestore';
 import { auth } from '../../../firebaseConfig';
 
+
     export const CompetitionCard = ({ competition }) => {
         const [participating, setParticipating] = useState(false);
         const [calories, setCalories] = useState(0);
@@ -116,7 +117,9 @@ import { auth } from '../../../firebaseConfig';
         };
 
         return (
-            <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
+            <div className=" bg-white b shadow-lg rounded-lg p-4 mb-4"
+            
+            >
                 <h3 className="text-lg font-semibold text-gray-800">{competition.name}</h3>
                 <p className="text-gray-600">Prize: {competition.prize}</p>
                 <p className="text-gray-600">Rules: {competition.rules}</p>

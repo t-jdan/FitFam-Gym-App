@@ -55,7 +55,7 @@ export const Attendance = () => {
               <h3 className="text-xl font-semibold mb-2">{record.email}</h3>
               <p className="text-md text-gray-600">Check-In: {record.checkInTime}</p>
               <p className="text-md text-gray-600">Check-Out: {record.checkOutTime}</p>
-              <p className="text-md text-gray-600">User ID: {record.userId}</p>
+              
             </div>
           </div>
         ))}
