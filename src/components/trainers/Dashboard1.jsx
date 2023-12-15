@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { auth } from "../../../firebaseConfig";
-import { HorizontalCard } from "../admin/HorizontalCard";
+import { auth, db } from "../../../firebaseConfig";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { HorizontalCard } from "../student/HorizontalCard";
+import { RegularCard } from "../admin/RegularCard";
 // import { RegularCard } from "./RegularCard";
 
 export const Dashboard1 = () => {
   const [user, setUser] = useState({});
   const [showAttendancePrompt, setShowAttendancePrompt] = useState(false);
+  const [userCompetitions, setUserCompetitions] = useState([]);
 
 
   useEffect(() => {
@@ -13,6 +16,8 @@ export const Dashboard1 = () => {
       if (user) {
         // User is signed in, you can set user details here
         setUser(user);
+        fetchUserCompetitions(user.uid);
+      
 
          // Show the attendance prompt after 5 seconds
          const timeout = setTimeout(() => {
@@ -33,6 +38,18 @@ export const Dashboard1 = () => {
     // Close the attendance prompt when the user clicks the close button
     setShowAttendancePrompt(false);
   };
+  const fetchUserCompetitions = async (userId) => {
+    try {
+      const q = query(collection(db, "competition"));
+      const querySnapshot = await getDocs(q);
+      const competitions = querySnapshot.docs.map(doc => doc.data());
+      setUserCompetitions(competitions);
+      console.log(competitions)
+    } catch (error) {
+      console.error("Error fetching user competitions: ", error);
+    }
+  };
+
 
   return (
     <>
@@ -40,10 +57,12 @@ export const Dashboard1 = () => {
         <div>
           <HorizontalCard name={auth.currentUser?.displayName} />
         </div>
-        {/* <div className="w-full h-auto flex items-center space-x-4">
-          <RegularCard title={"Trainers"} content={[]} />
-          <RegularCard title={"Equipment"} content={[]} />
-        </div> */}
+        <div className="w-full h-auto flex items-center space-x-4">
+        
+          <RegularCard title="Available Competitions" value={`(${userCompetitions?.length})`} />
+        
+        
+        </div>
       </div>
        {/* Attendance Prompt Modal */}
        {showAttendancePrompt && (

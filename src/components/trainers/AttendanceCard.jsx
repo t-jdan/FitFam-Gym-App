@@ -5,7 +5,7 @@ export const AttendanceCard = () => {
           <div className="w-3/4 flex flex-col items-start">
             <span className="font-bold text-lg">Please Take Note Of the Following</span>
             <span>
-            Only take your attendance  when you are physically present in the gym: not on your way or you intend to attend. Honor code applies
+            Only take your attendance  when you are physically present in the gym: not on your way or when you intend to attend. Honor code applies.
             </span>
           </div>
           <div className="w-24 h-24">

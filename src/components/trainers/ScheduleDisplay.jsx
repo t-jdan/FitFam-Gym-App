@@ -17,13 +17,19 @@ export const ScheduleDisplay = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h2>Trainer Schedule</h2>
+      <h2 className="text-black font-bold py-2 px-4 text-left text-xl">Trainer Schedule</h2>
       <input 
         type="text"
         placeholder="Search by day..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ padding: '10px', marginBottom: '20px', width: '100%', boxSizing: 'border-box' }}
+        style={{ 
+          padding: '10px', 
+          marginBottom: '20px', 
+          width: '100%', 
+          boxSizing: 'border-box',
+          border: '1px solid black', // Add this line for a black border
+        }}
       />
       <div className='w-full grid grid-cols-4 gap-4' 
     

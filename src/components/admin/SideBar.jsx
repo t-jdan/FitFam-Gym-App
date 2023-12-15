@@ -167,7 +167,7 @@ function Sidebar() {
           </div>
           </Link>
         
-        <Link
+        {/* <Link
           to={"/report"}
           style={
             isActive("/report") ? { background: "white", color: "black" } : {}
@@ -182,7 +182,7 @@ function Sidebar() {
             <File />
             <span>Report</span>
           </div>
-        </Link>
+        </Link> */}
       </div>
       <div>
         <div

@@ -68,6 +68,7 @@ export const Dashboard = () => {
 
   return (
     <div className="px-5 py-5 overflow-y-auto space-y-4 w-3/4 mx-auto">
+      
       {/* ... rest of the dashboard layout ... */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <RegularCard title="Total Equipment" value={equipment.length} />

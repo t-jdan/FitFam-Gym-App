@@ -80,7 +80,7 @@ export const AttendanceComponent = () => {
   };
 
   return (
-    <div>
+    <div><h2 className="text-black font-bold py-2 px-4 text-left text-xl">Attendance</h2>
       <div className="mb-4">
         <button onClick={handleCheckIn} className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full mr-2">Check-In</button>
         <button onClick={handleCheckOut} className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full">Check-Out</button>
@@ -89,12 +89,6 @@ export const AttendanceComponent = () => {
       {/* Render attendance records in a grid */}
       <div 
         className="grid grid-cols-4 w-full gap-4 p-4"
-      // style={{ 
-      //   display: 'grid', 
-      //   gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', 
-      //   gap: '20px', 
-      //   width: '100%'
-      // }}
       
       >
         {attendanceRecords.map(record => (

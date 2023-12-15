@@ -31,7 +31,7 @@ import { Leaderboard } from './Leaderboard';
           };
         
           return (
-            <div>
+            <div><h2 className="text-black font-bold py-2 px-4 text-left text-xl">Leaderboard</h2>
               <div className="flex flex-wrap justify-center">
                 {competitions.map((competition) => (
                   <div 
